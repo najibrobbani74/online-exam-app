@@ -1,0 +1,732 @@
+{
+    "login": {
+        "sign-in": {
+            "method": "post",
+            "url": "localhost/api/auth/sign-in",
+            "req": {
+                "email": "a@gmail.com",
+                "password": "123"
+            },
+            "res": {
+                "id": 123456,
+                "name": "a",
+                "email": "a@gmail.com",
+                "class-list": [
+                    1234567,
+                    1234567
+                ],
+                "access-token": "p",
+                "refresh-token": "p"
+            }
+        }
+    },
+    "register": {
+        "sign-up": {
+            "method": "post",
+            "url": "localhost/api/auth/sign-up",
+            "req": {
+                "email": "a@gmail.com",
+                "name": "a",
+                "password": "123",
+                "confirm-password": "123",
+                "number-phone": "123"
+            },
+            "res": {
+                "status-code": 200
+            }
+        }
+    },
+    "dashboard-student": {
+        "get-all-class": {
+            "method": "get",
+            "url": "localhost/api/class",
+            "req": {
+                "user-id": 123456
+            },
+            "res": {
+                "classes": [
+                    {
+                        "id": 12345,
+                        "name": "low",
+                        "description": "description"
+                    },
+                    {
+                        "id": 12345,
+                        "name": "low",
+                        "description": "description"
+                    }
+                ]
+            }
+        },
+        "delete-class": {
+            "method": "delete",
+            "url": "localhost/api/class/{id}",
+            "path": {
+                "id": 12345
+            },
+            "res": {
+                "status-code": 200
+            }
+        },
+        "add-class": {
+            "method": "post",
+            "url": "localhost/api/class",
+            "req": {
+                "id": 12345,
+                "password": "123"
+            },
+            "res": {
+                "status-code": 200
+            }
+        }
+    },
+    "dashboard-admin": {
+        "get-all-class-group": {
+            "method": "get",
+            "url": "localhost/api/class-group",
+            "req": {
+                "user-id": 123456,
+                "parent-id": 1
+            },
+            "res": {
+                "class-group": [
+                    {
+                        "id": 12345,
+                        "name": "low-group",
+                        "parent-id": 1
+                    },
+                    {
+                        "id": 12345,
+                        "name": "low-group",
+                        "parent-id": 1
+                    }
+                ]
+            }
+        },
+        "add-class-group": {
+            "method": "post",
+            "url": "localhost/api/class-group",
+            "req": {
+                "name": "low-group",
+                "parent-id": 1
+            },
+            "res": {
+                "status-code": 200
+            }
+        },
+        "edit-class-group": {
+            "method": "put",
+            "url": "localhost/api/class-group/{id}",
+            "path": {
+                "id": 12345
+            },
+            "req": {
+                "name": "low"
+            },
+            "res": {
+                "status-code": 200
+            }
+        },
+        "delete-class-group": {
+            "method": "delete",
+            "url": "localhost/api/class-group/{id}",
+            "path": {
+                "id": 12345
+            },
+            "res": {
+                "status-code": 200
+            }
+        }
+    },
+    "student-class": {
+        "get-info-class": {
+            "method": "get",
+            "url": "localhost/api/class/{id}",
+            "req": {
+                "id": 12345
+            },
+            "res": {
+                "picture": "d:/picture.jpg",
+                "title": "low",
+                "description": "description",
+                "participants": [
+                    "a",
+                    "b"
+                ],
+                "event": [
+                    {
+                        "title": "event-1",
+                        "sender": "a",
+                        "data": [
+                            {
+                                "type": "description",
+                                "message": "description"
+                            },
+                            {
+                                "type": "file",
+                                "message": "link file"
+                            },
+                            {
+                                "type": "form",
+                                "link": "http://localhost/form"
+                            },
+                            {
+                                "type": "picture",
+                                "location": "D:/picture.jpg"
+                            },
+                            {
+                                "type": "submit-file-button",
+                                "start-time": "12:00",
+                                "end-time": "13:00"
+                            },
+                            {
+                                "type": "submit-text-button",
+                                "start-time": "12:00",
+                                "end-time": "13:00"
+                            },
+                            {
+                                "type": "submit-checkbox-button",
+                                "start-time": "12:00",
+                                "end-time": "13:00"
+                            },
+                            {
+                                "type": "submit-radio-button",
+                                "start-time": "12:00",
+                                "end-time": "13:00"
+                            },
+                            {
+                                "type": "submit-range-button",
+                                "start-time": "12:00",
+                                "end-time": "13:00"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "submit-task": {
+            "method": "post",
+            "url": "localhost/api/event/{id}/task",
+            "path": {
+                "id": 12345
+            },
+            "req": {
+                "tasks": [
+                    {
+                        "type": "submit-file-button",
+                        "file-name": "file.jpg",
+                        "time": "12:00"
+                    },
+                    {
+                        "type": "submit-text-button",
+                        "message": "description",
+                        "time": "12:00"
+                    },
+                    {
+                        "type": "submit-checkbox-button",
+                        "value": [
+                            "value-1",
+                            "value-2"
+                        ],
+                        "time": "12:00"
+                    },
+                    {
+                        "type": "submit-radio-button",
+                        "value": "value-1",
+                        "time": "12:00"
+                    },
+                    {
+                        "type": "submit-range-button",
+                        "value": "value-1",
+                        "time": "12:00"
+                    }
+                ]
+            },
+            "res": {
+                "status-code": 200
+            }
+        }
+    },
+    "class-group": {
+        "get-member-class-group": {
+            "method": "get",
+            "url": "localhost/api/class-group/{id}",
+            "path": {
+                "id": 12345
+            },
+            "res": {
+                "members": [
+                    {
+                        "id": 12345,
+                        "type": "class-group",
+                        "name": "low-group"
+                    },
+                    {
+                        "id": 12345,
+                        "type": "class",
+                        "name": "low"
+                    }
+                ]
+            }
+        },
+        "add-class-group": {
+            "method": "post",
+            "url": "localhost/api/class-group",
+            "req": {
+                "name": "low-group",
+                "parent-id": 1
+            },
+            "res": {
+                "status-code": 200
+            }
+        },
+        "add-class": {
+            "method": "post",
+            "url": "localhost/api/class",
+            "req": {
+                "name": "low",
+                "description": "description"
+            },
+            "res": {
+                "status-code": 200
+            }
+        },
+        "edit-class": {
+            "method": "put",
+            "url": "localhost/api/class/{id}",
+            "path": {
+                "id": 12345
+            },
+            "req": {
+                "name": "low",
+                "description": "description"
+            },
+            "res": {
+                "status-code": 200
+            }
+        },
+        "edit-class-group": {
+            "method": "put",
+            "url": "localhost/api/class-group/{id}",
+            "path": {
+                "id": 12345
+            },
+            "req": {
+                "name": "low-group"
+            },
+            "res": {
+                "status-code": 200
+            }
+        },
+        "delete-class-group": {
+            "method": "delete",
+            "url": "localhost/api/class-group/{id}",
+            "path": {
+                "id": 12345
+            },
+            "res": {
+                "status-code": 200
+            }
+        },
+        "delete-class": {
+            "method": "delete",
+            "url": "localhost/api/class/{id}",
+            "path": {
+                "id": 12345
+            },
+            "res": {
+                "status-code": 200
+            }
+        }
+    },
+    "form": {
+        "get-form-data": {
+            "method": "get",
+            "url": "localhost/api/form/{id}",
+            "path": {
+                "id": 12345
+            },
+            "start-time": "12:00",
+            "end-time": "13:00",
+            "duration": "200000",
+            "res": {
+                "title": "form-1",
+                "description": "description",
+                "questions": [
+                    {
+                        "type": "text",
+                        "question": "apa?"
+                    },
+                    {
+                        "type": "radio",
+                        "question": "apa?",
+                        "answers": [
+                            "answer-1",
+                            "answer-2"
+                        ]
+                    },
+                    {
+                        "type": "checkbox",
+                        "question": "apa?",
+                        "answers": [
+                            "answer-1",
+                            "answer-2"
+                        ]
+                    },
+                    {
+                        "type": "range",
+                        "question": "apa?"
+                    },
+                    {
+                        "type": "file",
+                        "question": "apa?"
+                    }
+                ]
+            }
+        },
+        "submit-answers": {
+            "method": "post",
+            "url": "localhost/api/forms/{id}",
+            "req": {
+                "answers": [
+                    {
+                        "type": "text",
+                        "value": "value-1"
+                    },
+                    {
+                        "type": "checkbox",
+                        "value": [
+                            "value-1",
+                            "value-2"
+                        ]
+                    },
+                    {
+                        "type": "radio",
+                        "value": "value-1"
+                    },
+                    {
+                        "type": "range",
+                        "value": "value-1"
+                    },
+                    {
+                        "type": "file",
+                        "filename": "picture.jpg"
+                    }
+                ]
+            },
+            "res": {
+                "status-code": 200
+            }
+        }
+    },
+    "EditClass": {
+        "get-info-class": {
+            "method": "get",
+            "url": "localhost/api/class/{id}",
+            "path": {
+                "id": 12345
+            },
+            "res": {
+                "picture": "d:/picture.jpg",
+                "title": "low",
+                "description": "description",
+                "participants": [
+                    {
+                        "id": 12345,
+                        "name": "a",
+                        "email": "a@gmail.com",
+                        "number-phone": "123"
+                    }
+                ],
+                "event": [
+                    {
+                        "title": "event-1",
+                        "sender": "a",
+                        "body": [
+                            {
+                                "type": "description",
+                                "message": "description"
+                            },
+                            {
+                                "type": "file",
+                                "message": "link file"
+                            },
+                            {
+                                "type": "form",
+                                "link": "http://localhost/form"
+                            },
+                            {
+                                "type": "picture",
+                                "location": "D:/picture.jpg"
+                            },
+                            {
+                                "type": "submit-file-button",
+                                "start-time": "12:00",
+                                "end-time": "13:00"
+                            },
+                            {
+                                "type": "submit-text-button",
+                                "start-time": "12:00",
+                                "end-time": "13:00"
+                            },
+                            {
+                                "type": "submit-checkbox-button",
+                                "start-time": "12:00",
+                                "end-time": "13:00"
+                            },
+                            {
+                                "type": "submit-radio-button",
+                                "start-time": "12:00",
+                                "end-time": "13:00"
+                            },
+                            {
+                                "type": "submit-range-button",
+                                "start-time": "12:00",
+                                "end-time": "13:00"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "remove-user": {
+            "method": "delete",
+            "url": "localhost/api/user/{id}",
+            "path": {
+                "id": 12345
+            },
+            "res": {
+                "status-code": 200
+            }
+        },
+        "add-event": {
+            "method": "post",
+            "url": "localhost/api/event",
+            "req": {
+                "name": "event-1",
+                "sender": "a"
+            },
+            "res": {
+                "status-code": 200
+            }
+        },
+        "delete-event": {
+            "method": "delete",
+            "url": "localhost/api/event/{id}",
+            "path": {
+                "id": 12345
+            },
+            "res": {
+                "status-code": 200
+            }
+        },
+        "edit-event": {
+            "method": "put",
+            "url": "localhost/api/event/{id}",
+            "path": {
+                "id": 12345
+            },
+            "req": {
+                "title": "event-1",
+                "body": [
+                    {
+                        "type": "description",
+                        "message": "description"
+                    },
+                    {
+                        "type": "file",
+                        "message": "link file"
+                    },
+                    {
+                        "type": "form",
+                        "link": "http://localhost/form"
+                    },
+                    {
+                        "type": "picture",
+                        "location": "D:/picture.jpg"
+                    },
+                    {
+                        "type": "submit-file-button",
+                        "start-time": "12:00",
+                        "end-time": "13:00"
+                    },
+                    {
+                        "type": "submit-text-button",
+                        "start-time": "12:00",
+                        "end-time": "13:00"
+                    },
+                    {
+                        "type": "submit-checkbox-button",
+                        "start-time": "12:00",
+                        "end-time": "13:00"
+                    },
+                    {
+                        "type": "submit-radio-button",
+                        "start-time": "12:00",
+                        "end-time": "13:00"
+                    },
+                    {
+                        "type": "submit-range-button",
+                        "start-time": "12:00",
+                        "end-time": "13:00"
+                    }
+                ]
+            },
+            "res": {
+                "status-code": 200
+            }
+        }
+    },
+    "EditForm": {
+        "get-form-info": {
+            "method": "get",
+            "url": "localhost/api/form/{id}",
+            "path": {
+                "id": 12345
+            },
+            "res": {
+                "title": "form-1",
+                "description": "description",
+                "start-time": "12:00",
+                "end-time": "13:00",
+                "duration": "200000",
+                "data": [
+                    {
+                        "type": "text",
+                        "question": "apa?"
+                    },
+                    {
+                        "type": "radio",
+                        "question": "apa?",
+                        "answers": [
+                            "answer-1",
+                            "answer-2"
+                        ]
+                    },
+                    {
+                        "type": "checkbox",
+                        "question": "apa?",
+                        "answers": [
+                            "answer-1",
+                            "answer-2"
+                        ]
+                    },
+                    {
+                        "type": "range",
+                        "question": "apa?"
+                    },
+                    {
+                        "type": "file",
+                        "question": "apa?"
+                    }
+                ]
+            }
+        },
+        "edit-form": {
+            "method": "put",
+            "url": "localhost/api/form/{id}",
+            "path": {
+                "id": 12345
+            },
+            "req": {
+                "title": "form-1",
+                "description": "description",
+                "start-time": "12:00",
+                "end-time": "13:00",
+                "duration": "200000",
+                "data": [
+                    {
+                        "type": "text",
+                        "question": "apa?"
+                    },
+                    {
+                        "type": "radio",
+                        "question": "apa?",
+                        "answers": [
+                            "answer-1",
+                            "answer-2"
+                        ]
+                    },
+                    {
+                        "type": "checkbox",
+                        "question": "apa?",
+                        "answers": [
+                            "answer-1",
+                            "answer-2"
+                        ]
+                    },
+                    {
+                        "type": "range",
+                        "question": "apa?"
+                    },
+                    {
+                        "type": "file",
+                        "question": "apa?"
+                    }
+                ]
+            },
+            "res": {
+                "status-code": 200
+            }
+        }
+    },
+    "event-result": {
+        "get-event-result": {
+            "method": "get",
+            "url": "localhost/api/event/result/{id}",
+            "path": {
+                "id": 12345
+            },
+            "res": {
+                "type":"text",
+                "results": [
+                    {
+                        "id": 123,
+                        "user-id": 123,
+                        "user-name": "a",
+                        "message": "description"
+                    }
+                ]
+            }
+        }
+    },
+    "form-result":{
+        "get-form-result":{
+            "method":"get",
+            "url":"localhost/api/form/result/{id}",
+            "path":{
+                "id":123
+            },
+            "res":{
+                "answers":[
+                    {
+                        "user-id":123,
+                        "user-name":"a",
+                        "data":[
+                            {
+                                "type":"text",
+                                "value":"value-1"
+                            },
+                            {
+                                "type":"checkbox",
+                                "value":["value-1","value-2"]
+                            },
+                            {
+                                "type":"radio",
+                                "value":"value-1"
+                            },
+                            {
+                                "type":"range",
+                                "value":"value-1"
+                            },
+                            {
+                                "type":"file",
+                                "filename":"picture.jpg"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

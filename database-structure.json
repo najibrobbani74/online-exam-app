@@ -1,0 +1,226 @@
+{
+    "sql": [
+        {
+            "name": "user"
+        },
+        {
+            "name": "class-group"
+        },
+        {
+            "name": "class"
+        },
+        {
+            "name": "event"
+        }
+    ],
+    "mongodb": [
+        {
+            "name": "user",
+            "column": {
+                "id": 123,
+                "name": "a",
+                "email": "a@gmail.com",
+                "password": "123",
+                "phone-number": "08123456789",
+                "role": "admin||member",
+                "refresh_token": "abc"
+            }
+        },
+        {
+            "name": "class-group",
+            "column": {
+                "id": 123,
+                "name": "low",
+                "parent": "1(id_general)||12345(id_parent)",
+                "member": [
+                    12345,
+                    12356
+                ]
+            }
+        },
+        {
+            "name": "class",
+            "column": {
+                "id": 123,
+                "name": "low",
+                "description": "description",
+                "participants": [
+                    112223,
+                    1122334
+                ],
+                "events": [
+                    123456644
+                ]
+            }
+        },
+        {
+            "name": "event",
+            "column": {
+                "id": 123,
+                "title": "event-1",
+                "sender": "a",
+                "body": [
+                    {
+                        "type": "description",
+                        "message": "description"
+                    },
+                    {
+                        "type": "file",
+                        "message": "link file"
+                    },
+                    {
+                        "type": "form",
+                        "id": 12334
+                    },
+                    {
+                        "type": "picture",
+                        "location": "D:/picture.jpg"
+                    },
+                    {
+                        "type": "submit-file-button",
+                        "result-id": 123,
+                        "start-time": "12:00",
+                        "end-time": "13:00"
+                    },
+                    {
+                        "type": "submit-text-button",
+                        "result-id": 123,
+                        "start-time": "12:00",
+                        "end-time": "13:00"
+                    },
+                    {
+                        "type": "submit-checkbox-button",
+                        "result-id": 123,
+                        "start-time": "12:00",
+                        "end-time": "13:00"
+                    },
+                    {
+                        "type": "submit-radio-button",
+                        "result-id": 123,
+                        "start-time": "12:00",
+                        "end-time": "13:00"
+                    },
+                    {
+                        "type": "submit-range-button",
+                        "result-id": 123,
+                        "start-time": "12:00",
+                        "end-time": "13:00"
+                    }
+                ]
+            }
+        },
+        {
+            "name": "event-result",
+            "column": {
+                "text": [
+                    {
+                        "id": 123,
+                        "data": [
+                            {
+                                "id": 123,
+                                "user-id": 123,
+                                "user-name": "a",
+                                "message": "description"
+                            }
+                        ]
+                    }
+                ],
+                "file": [
+                    {
+                        "id": 123,
+                        "data": [
+                            {
+                                "id": 123,
+                                "user-id": 123,
+                                "user-name": "a",
+                                "location": "D:/picture.jpg"
+                            }
+                        ]
+                    }
+                ],
+                "radio": [
+                    {
+                        "id":123,
+                        "data": [
+                            {
+                                "id": 123,
+                                "user-id": 123,
+                                "user-name": "a",
+                                "value": "a. anggur"
+                            }
+                        ]
+                    }
+                ],
+                "checkbox": [
+                    {
+                        "id":123,
+                        "data": [
+                            {
+                                "id": 123,
+                                "user-id": 123,
+                                "user-name": "a",
+                                "value": ["anggur","nasi"]
+                            }
+                        ]
+                    }
+                ],
+                "range": [
+                    {
+                        "id":123,
+                        "min":0,
+                        "max":100,
+                        "data": [
+                            {
+                                "id": 123,
+                                "user-id": 123,
+                                "user-name": "a",
+                                "value": 25
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name":"form-result",
+            "column":{
+                "id":123,
+                "start-time":"12:00",
+                "end-time":"13:00",
+                "duration":"1.00",
+                "questions":[
+                    "1.apakah aku?",
+                    "2.apakah kamu?"
+                ],
+                "answers":[
+                    {
+                        "user-id":123,
+                        "user-name":"a",
+                        "data":[
+                            {
+                                "type":"text",
+                                "value":"value-1"
+                            },
+                            {
+                                "type":"checkbox",
+                                "value":["value-1","value-2"]
+                            },
+                            {
+                                "type":"radio",
+                                "value":"value-1"
+                            },
+                            {
+                                "type":"range",
+                                "value":"value-1"
+                            },
+                            {
+                                "type":"file",
+                                "filename":"picture.jpg"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}
